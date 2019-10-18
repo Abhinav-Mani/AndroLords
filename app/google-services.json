@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "71489773702",
+    "firebase_url": "https://prayaas-hack-a-bit.firebaseio.com",
+    "project_id": "prayaas-hack-a-bit",
+    "storage_bucket": "prayaas-hack-a-bit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71489773702:android:8dc34bb3355aeb5a11f107",
+        "android_client_info": {
+          "package_name": "com.androlord.prayaas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71489773702-lhfugrno75gl35vtvu4kb7se7dqf242e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.androlord.prayaas",
+            "certificate_hash": "c330a061edb8dad1bfc6f21b2a1a4913d6baf257"
+          }
+        },
+        {
+          "client_id": "71489773702-lqdbm50ga5hili7cg9cuk82f9u34s7p6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU8O72mDbhO4nmlzYJR4nHExwo4vWn_Hs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71489773702-lqdbm50ga5hili7cg9cuk82f9u34s7p6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
