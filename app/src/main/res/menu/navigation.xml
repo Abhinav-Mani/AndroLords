@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_book"
+        android:icon="@drawable/ic_book_black_24dp"
+        android:title="Books"/>
+
+    <item
+        android:id="@+id/navigation_addbook"
+        android:icon="@drawable/ic_library_add_black_24dp"
+        android:title="Contribute"/>
+
+    <item
+        android:id="@+id/navigation_chat"
+        android:icon="@drawable/ic_chat_black_24dp"
+
+        android:title="Contacts"/>
+    <item
+        android:id="@+id/ebooks"
+        android:title="E-Books"
+        android:icon="@drawable/ebook">
+
+    </item>
+
+</menu>
