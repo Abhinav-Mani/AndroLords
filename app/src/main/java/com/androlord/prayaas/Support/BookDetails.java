@@ -14,10 +14,14 @@ import com.androlord.prayaas.R;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BookDetails extends AppCompatActivity {
@@ -25,7 +29,7 @@ public class BookDetails extends AppCompatActivity {
     ImageView imageView;
     TextView name,author,pref,publish,exam;
     RatingBar ratingBar;
-    Button button;
+    Button button,report;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,7 @@ public class BookDetails extends AppCompatActivity {
         publish=findViewById(R.id.publish);
         exam=findViewById(R.id.exam);
         ratingBar=findViewById(R.id.rate);
+        report=findViewById(R.id.reportBook);
 
 
 
@@ -79,7 +84,7 @@ public class BookDetails extends AppCompatActivity {
                 Intent intent=new Intent(BookDetails.this,ChatBox.class);
 
                 HashMap<String,String> data = new HashMap<String,String >();
-                Log.d("ak47", "onClick: "+info.get("Title")+" "+info.get("Cover")+" "+info.get("Email").substring(0,info.get("Email").indexOf('@')));
+                ;
                 data.put("Title",info.get("Title"));
                 data.put("Cover",info.get("Cover"));
                 data.put("Source","0");
@@ -87,8 +92,28 @@ public class BookDetails extends AppCompatActivity {
                 data.put("DateOFPublish",info.get("DateOFPublish"));
                 data.put("Exam",info.get("Exam"));
                 data.put("Rating",info.get("Rating"));
+
                 intent.putExtra("Data",data);
                 startActivity(intent);
+            }
+        });
+        report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+               FirebaseDatabase.getInstance().getReference("Reports").child(info.get("City")).setValue(info.get("Key")).addOnSuccessListener(new OnSuccessListener<Void>() {
+                   @Override
+                   public void onSuccess(Void aVoid) {
+                       Toast.makeText(BookDetails.this,"Reported",Toast.LENGTH_LONG);
+                       finish();
+                   }
+               }).addOnFailureListener(new OnFailureListener() {
+                   @Override
+                   public void onFailure(@NonNull Exception e) {
+                       Toast.makeText(BookDetails.this,"Something Went Wrong",Toast.LENGTH_LONG);
+                   }
+               });
+
             }
         });
 

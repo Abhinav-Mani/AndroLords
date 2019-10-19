@@ -105,6 +105,8 @@ public class AddBooks extends AppCompatActivity {
         bookdata.put("Exam",exam);
         bookdata.put("Rating",resusabilityRating);
         bookdata.put("Pref",pref);
+        bookdata.put("City",city);
+        bookdata.put("Key",key);
 
         final Uri[] imguri = new Uri[4];
 

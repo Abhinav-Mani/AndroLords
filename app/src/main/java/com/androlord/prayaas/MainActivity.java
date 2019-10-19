@@ -19,6 +19,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth.AuthStateListener authStateListener;
     FirebaseAuth mAuth;
     BottomNavigationView bottomNavigation;
-
+    Boolean admin=false;
+    String currentUser;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId())
@@ -54,7 +59,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater=getMenuInflater();
-        menuInflater.inflate(R.menu.main_activity_menu,menu);
+        if (admin)
+        {
+            menuInflater.inflate(R.menu.main_activity_admin_menu,menu);
+        }
+        else
+        {
+            menuInflater.inflate(R.menu.main_activity_menu,menu);
+        }
+
+
         return true;
     }
 
@@ -64,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
+
         // Build a GoogleSignInClient with the options specified by gso.
 
         // Build a GoogleSignInClient with the options specified by gso.
@@ -85,8 +100,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+        final String currentUsername=FirebaseAuth.getInstance().getCurrentUser().getEmail().substring(0,FirebaseAuth.getInstance().getCurrentUser().getEmail().indexOf('@'));
         mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        final FirebaseUser currentUser = mAuth.getCurrentUser();
         mAuth=FirebaseAuth.getInstance();
         bottomNavigation=findViewById(R.id.navigationView);
         FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
@@ -94,6 +110,27 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.container,booksAvailable);
         fragmentTransaction.commit();
         nav();
+        FirebaseDatabase.getInstance().getReference("Admin").addValueEventListener(new ValueEventListener() {
+
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
+                {
+                    if(currentUsername.equalsIgnoreCase(dataSnapshot1.getKey()))
+                    {
+                        admin=true;
+                        invalidateOptionsMenu();
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
         //startActivity(new Intent(MainActivity.this, Login.class));

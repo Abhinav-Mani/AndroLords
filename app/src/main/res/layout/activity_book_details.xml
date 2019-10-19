@@ -92,4 +92,10 @@
         android:background="@color/blue"
         android:id="@+id/contactperson"
         android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="match_parent"
+        android:text="Report"
+        android:background="@color/blue"
+        android:id="@+id/reportBook"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

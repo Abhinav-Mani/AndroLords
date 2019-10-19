@@ -90,7 +90,7 @@ public class Ebooks extends Fragment {
         list=new ArrayList<EbookDetails>();
         RecyclerView recyclerView=vh.findViewById(R.id.recyclerViewListEbooks);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerViewAdapterEbooks=new RecyclerViewAdapterEbooks(list);
+        recyclerViewAdapterEbooks=new RecyclerViewAdapterEbooks(getContext(),list);
         recyclerView.setAdapter(recyclerViewAdapterEbooks);
 
 
@@ -110,6 +110,7 @@ public class Ebooks extends Fragment {
                     Log.d("ak47",dataSnapshot1.getKey()+"->"+mp);
                     EbookDetails ebookDetails=new EbookDetails();
                     ebookDetails.name=mp.get("name");
+                    ebookDetails.url=mp.get("url");
                     list.add(ebookDetails);
                 }
                 recyclerViewAdapterEbooks.notifyDataSetChanged();
