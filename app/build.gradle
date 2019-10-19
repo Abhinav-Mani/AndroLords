@@ -30,6 +30,10 @@ dependencies {
 
     //bottom navigation
     implementation 'com.android.support:design:28.0.0'
+
+    //pdfViewer
+
+
     //recyclerview dont update to 4.10.0 reasons unknown
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     //glide

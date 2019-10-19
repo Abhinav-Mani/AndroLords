@@ -85,6 +85,18 @@
 
 
     </androidx.cardview.widget.CardView>
+    <Button
+        android:layout_width="match_parent"
+        android:text="Remove"
+        android:background="@color/blue"
+        android:id="@+id/Remove"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="match_parent"
+        android:text="OK"
+        android:background="@color/blue"
+        android:id="@+id/OK"
+        android:layout_height="wrap_content"/>
 
     <Button
         android:layout_width="match_parent"

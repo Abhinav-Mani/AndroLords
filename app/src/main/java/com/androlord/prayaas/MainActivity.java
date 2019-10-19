@@ -12,6 +12,7 @@ import com.androlord.prayaas.NavigationFragments.BooksAvailable;
 import com.androlord.prayaas.NavigationFragments.Chats;
 import com.androlord.prayaas.NavigationFragments.Ebooks;
 import com.androlord.prayaas.NavigationFragments.YourBooks;
+import com.androlord.prayaas.Support.AdminPanel;
 import com.androlord.prayaas.Support.Login;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -44,8 +45,17 @@ public class MainActivity extends AppCompatActivity {
             case R.id.Logout:
                 signOut();
                 break;
+            case R.id.AdminPanel:
+                jump();
+                break;
+
         }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    private void jump() {
+        startActivity(new Intent(MainActivity.this, AdminPanel.class));
     }
 
     private void signOut() {
@@ -100,7 +110,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
-        final String currentUsername=FirebaseAuth.getInstance().getCurrentUser().getEmail().substring(0,FirebaseAuth.getInstance().getCurrentUser().getEmail().indexOf('@'));
+        String currentUsername="";
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null)
+        currentUsername=FirebaseAuth.getInstance().getCurrentUser().getEmail().substring(0,FirebaseAuth.getInstance().getCurrentUser().getEmail().indexOf('@'));
         mAuth = FirebaseAuth.getInstance();
         final FirebaseUser currentUser = mAuth.getCurrentUser();
         mAuth=FirebaseAuth.getInstance();
@@ -110,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.container,booksAvailable);
         fragmentTransaction.commit();
         nav();
+        final String finalCurrentUsername = currentUsername;
         FirebaseDatabase.getInstance().getReference("Admin").addValueEventListener(new ValueEventListener() {
 
 
@@ -117,11 +130,12 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
                 {
-                    if(currentUsername.equalsIgnoreCase(dataSnapshot1.getKey()))
+                    if(finalCurrentUsername.equalsIgnoreCase(dataSnapshot1.getKey()))
                     {
                         admin=true;
                         invalidateOptionsMenu();
                     }
+                    Log.d("ak47", String.valueOf(String.valueOf(dataSnapshot1.getKey()).equalsIgnoreCase(finalCurrentUsername)));
                 }
 
             }

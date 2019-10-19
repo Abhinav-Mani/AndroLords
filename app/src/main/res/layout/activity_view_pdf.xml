@@ -6,10 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".Support.ViewPdf">
     <WebView
+        android:id="@+id/pdfView"
         android:layout_width="match_parent"
-        android:soundEffectsEnabled="true"
-        android:layout_height="match_parent"
-        android:id="@+id/pdfViwerWebView"/>
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>

@@ -16,6 +16,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.SuccessContinuation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -29,7 +30,7 @@ public class BookDetails extends AppCompatActivity {
     ImageView imageView;
     TextView name,author,pref,publish,exam;
     RatingBar ratingBar;
-    Button button,report;
+    Button button,report,Ok,Remove;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,19 @@ public class BookDetails extends AppCompatActivity {
         exam=findViewById(R.id.exam);
         ratingBar=findViewById(R.id.rate);
         report=findViewById(R.id.reportBook);
+        Ok=findViewById(R.id.OK);
+        Remove=findViewById(R.id.Remove);
+        if(getIntent().hasExtra("Admin"))
+        {
+            report.setVisibility(View.GONE);
+            button.setVisibility(View.GONE);
+        }
+        else
+        {
+            Ok.setVisibility(View.GONE);
+            Remove.setVisibility(View.GONE);
+        }
+
 
 
 
@@ -51,6 +65,45 @@ public class BookDetails extends AppCompatActivity {
         {
             info=(HashMap<String,String>)getIntent().getSerializableExtra("bookdetails");
             Log.e("ak47", "onCreate: "+info.get("Title") );
+            Ok.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FirebaseDatabase.getInstance().getReference().child("Reports").child(info.get("City")).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            finish();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(BookDetails.this,"Something Went Wrong",Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+            });
+            Remove.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FirebaseDatabase.getInstance().getReference().child(info.get("City")).child(info.get("Key")).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+
+                            FirebaseDatabase.getInstance().getReference().child("Reports").child(info.get("City")).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(BookDetails.this,"REMOVED",Toast.LENGTH_LONG).show();
+                                    finish();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(BookDetails.this,"Something Went Wrong",Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+                    });
+                }
+            });
 
 //            Uri uri=Uri.parse(info.get("Cover"));
 //            String Title=info.get("Title");
