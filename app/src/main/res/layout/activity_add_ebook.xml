@@ -8,19 +8,56 @@
     android:layout_height="match_parent"
     tools:context=".Support.AddEbook">
     <EditText
+        android:id="@+id/edittext_name_ebook"
         android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:ems="10"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
         android:hint="Title"
-        android:layout_height="wrap_content"
-        android:id="@+id/edittext_name_ebook"/>
+        android:backgroundTint="@color/blue"
+        android:textColor="#ADD8E6"/>
+
     <EditText
+        android:id="@+id/edittext_author_ebook"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
         android:hint="Author"
-        android:id="@+id/edittext_author_ebook"/>
-    <Button
+        android:backgroundTint="@color/blue"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#ADD8E6"/>
+
+    <EditText
+        android:id="@+id/ebookexamtype"
         android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Exam Type"
+        android:backgroundTint="@color/blue"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#ADD8E6"/>
+
+    <EditText
+        android:id="@+id/ebooksubject"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Subject"
+        android:backgroundTint="@color/blue"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#ADD8E6"/>
+
+    <ImageButton
         android:id="@+id/upload_ebook"
-        android:text="UPLOAD"
-        android:layout_height="wrap_content"/>
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/download" />
 
 </LinearLayout>

@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.androlord.prayaas.DataClass.uploadPDF;
@@ -26,7 +27,7 @@ import com.google.firebase.storage.UploadTask;
 
 public class AddEbook extends AppCompatActivity {
     EditText name,author;
-    Button upload;
+    ImageButton upload;
     StorageReference storageReference;
 
     DatabaseReference databaseReference;
