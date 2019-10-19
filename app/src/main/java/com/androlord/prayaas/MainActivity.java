@@ -13,7 +13,9 @@ import com.androlord.prayaas.NavigationFragments.Chats;
 import com.androlord.prayaas.NavigationFragments.Ebooks;
 import com.androlord.prayaas.NavigationFragments.YourBooks;
 import com.androlord.prayaas.Support.AdminPanel;
+import com.androlord.prayaas.Support.AudioBooks;
 import com.androlord.prayaas.Support.Login;
+import com.androlord.prayaas.Support.Test;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -105,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+        nav();
 
 
     }
@@ -121,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         BooksAvailable booksAvailable=new BooksAvailable();
         fragmentTransaction.add(R.id.container,booksAvailable);
         fragmentTransaction.commit();
-        nav();
+
         final String finalCurrentUsername = currentUsername;
         FirebaseDatabase.getInstance().getReference("Admin").addValueEventListener(new ValueEventListener() {
 
@@ -204,6 +207,9 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.container,ebooks);
                         fragmentTransaction.commit();
                         break;
+                    case R.id.audio_books:
+                        Intent intent=new Intent(MainActivity.this, Test.class);
+                        startActivity(intent);
 
 
                 }

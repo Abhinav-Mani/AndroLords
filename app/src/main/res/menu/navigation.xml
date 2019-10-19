@@ -18,7 +18,12 @@
     <item
         android:id="@+id/ebooks"
         android:title="E-Books"
-        android:icon="@drawable/ebook">
+        android:icon="@drawable/ebook"></item>
+    <item
+        android:id="@+id/audio_books"
+        android:title="Aud-Books"
+        android:icon="@drawable/audio">
+
 
     </item>
 
