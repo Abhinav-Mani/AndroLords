@@ -154,7 +154,7 @@ public class BookDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               FirebaseDatabase.getInstance().getReference("Reports").child(info.get("City")).setValue(info.get("Key")).addOnSuccessListener(new OnSuccessListener<Void>() {
+               FirebaseDatabase.getInstance().getReference("Reports").child(info.get("Key")).setValue(info.get("City")).addOnSuccessListener(new OnSuccessListener<Void>() {
                    @Override
                    public void onSuccess(Void aVoid) {
                        Toast.makeText(BookDetails.this,"Reported",Toast.LENGTH_LONG);

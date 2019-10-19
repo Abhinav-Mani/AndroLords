@@ -6,14 +6,16 @@ public class uploadPDF {
     public String name;
     public String url;
     public String Author;
+    public String Key;
 
     public uploadPDF() {
     }
 
-    public uploadPDF(String name,String Author, String url) {
+    public uploadPDF(String name,String Author, String url,String Key) {
         this.Author=Author;
         this.name = name;
         this.url=url;
+        this.Key=Key;
     }
 
     public String getName() {

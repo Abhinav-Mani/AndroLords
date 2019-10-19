@@ -30,11 +30,13 @@ public class AddEbook extends AppCompatActivity {
     StorageReference storageReference;
 
     DatabaseReference databaseReference;
+    long Key;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Key=System.currentTimeMillis();
 
         setContentView(R.layout.activity_add_ebook);
         storageReference= FirebaseStorage.getInstance().getReference();
@@ -84,7 +86,7 @@ public class AddEbook extends AppCompatActivity {
         progressDialog.show();
 
 
-        StorageReference reference= storageReference.child("uploads/"+System.currentTimeMillis()+".pdf");
+        StorageReference reference= storageReference.child("uploads/"+Key+".pdf");
         reference.putFile(data)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -94,7 +96,7 @@ public class AddEbook extends AppCompatActivity {
                         Uri url =uri.getResult();
 
 
-                        uploadPDF uploadPDF=new uploadPDF(name.getText().toString().trim(),author.getText().toString().trim(),url.toString());
+                        uploadPDF uploadPDF=new uploadPDF(name.getText().toString().trim(),author.getText().toString().trim(),url.toString(),String.valueOf(Key));
                         databaseReference.child(databaseReference.push().getKey()).setValue(uploadPDF);
                         Toast.makeText(AddEbook.this, "File Uploaded", Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();

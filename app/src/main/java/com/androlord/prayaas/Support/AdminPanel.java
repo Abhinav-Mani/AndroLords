@@ -59,7 +59,7 @@ public class AdminPanel extends AppCompatActivity {
                 {
                     list.clear();
                     Log.d("ak47", "onDataChange: "+dataSnapshot1);
-                    database.getReference().child(dataSnapshot1.getKey()).child((String) dataSnapshot1.getValue()).addValueEventListener(new ValueEventListener() {
+                    database.getReference().child((String) dataSnapshot1.getValue()).child(dataSnapshot1.getKey()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             Log.d("ak47", "onDataChange:inside "+dataSnapshot);
