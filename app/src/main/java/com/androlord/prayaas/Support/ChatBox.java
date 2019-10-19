@@ -81,7 +81,7 @@ public class ChatBox extends AppCompatActivity {
             //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
-            Toast.makeText(this,"Hiiiiii",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Location permission not given",Toast.LENGTH_LONG).show();
             // for Activity#requestPermissions for more details.
             return;
         }
@@ -193,10 +193,7 @@ public class ChatBox extends AppCompatActivity {
                 databaseReference.child(currentUser).child("Messege").child(user2).child(String.valueOf(ts)).setValue(messege);
                 messegeComposer.setText("");
                 // String uri = String.format(Locale.ENGLISH, "geo:%f,%f", lat, lng );
-                String geoUri = "http://maps.google.com/maps?q=loc:" + lat + "," + lng + " ("+")";
 
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
-                startActivity(intent);
 
             }
         });

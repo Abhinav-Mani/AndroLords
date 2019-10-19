@@ -1,7 +1,9 @@
 package com.androlord.prayaas.NavigationFragments;
 
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
@@ -36,6 +38,8 @@ import java.util.Locale;
 import java.util.Map;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -49,7 +53,7 @@ public class BooksAvailable extends Fragment {
     Button search;
     LinearLayout linearLayout;
     private final int REQ_CODE_SPEECH_INPUT = 2;
-
+    ImageView location;
     ArrayAdapter stat,cit,exam;
 
     LinearLayoutManager linearLayoutManager;
@@ -122,7 +126,19 @@ public class BooksAvailable extends Fragment {
         View vh = inflater.inflate(R.layout.fragment_books_available, container, false);
         final ArrayList<Map<String, String>> list = new ArrayList<Map<String, String>>();
 
-
+        location=vh.findViewById(R.id.location);
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
+                {
+                   // Log.e(TAG, "setxml: peremission prob");
+                    ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION},0);
+                }else {
+                    mAutoCompleteTextView.setText("Ranchi");
+                }
+            }
+        });
         mAutoCompleteTextView=vh.findViewById(R.id.autoComplete);
 
         InputStream inputStream = getResources().openRawResource(R.raw.cities);
