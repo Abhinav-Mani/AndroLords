@@ -169,7 +169,7 @@ public class ChatBox extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(ChatBox.this);
         linearLayoutManager.setReverseLayout(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-        chatAdapter=new RecyclerViewChatAdapter(messeges);
+        chatAdapter=new RecyclerViewChatAdapter(ChatBox.this,messeges);
         recyclerView.setAdapter(chatAdapter);
 
         Intent intent=getIntent();
