@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Support.AddBooks"
+    android:id="@+id/book_add"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="340dp"
+                android:layout_height="400dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="60dp"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/book_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="357dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/white"
+                    android:onClick="capture"
+                    android:src="@drawable/cam"
+                    tools:layout_editor_absoluteX="40dp"
+                    tools:layout_editor_absoluteY="4dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bookcover"
+                    android:textColor="#3895d3"
+                    android:textSize="20dp"
+                    android:id="@+id/book_error"
+                    android:textStyle="bold">
+
+                </TextView>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="335dp"
+                android:layout_height="300dp"
+                app:cardCornerRadius="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="10dp"
+                >
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_margin="10dp"
+                        android:background="#d3d3d3"
+                        />
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/book_name_layout"
+                        app:errorEnabled="true"
+                        android:backgroundTint="#d3d3d3">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="#d3d3d3"
+                            android:id="@+id/book_name"
+                            android:textColor="#000000"
+                            android:inputType="text"
+                            android:hint="@string/bookname">
+
+                        </com.google.android.material.textfield.TextInputEditText>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/author_name_layout"
+                        android:layout_marginTop="20dp"
+                        app:errorEnabled="true"
+                        android:layout_marginBottom="40dp"
+                        android:backgroundTint="#d3d3d3">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="#d3d3d3"
+                            android:id="@+id/author_name"
+                            android:textColor="#000000"
+                            android:inputType="text"
+                            android:hint="@string/authorname">
+
+                        </com.google.android.material.textfield.TextInputEditText>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/publish_date"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="30dp"
+                            android:onClick="date"
+                            android:textSize="18sp"
+                            android:text="@string/publishdate">
+
+                        </TextView>
+                        <TextView
+                            android:layout_marginLeft="20dp"
+                            android:id="@+id/date_error"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"></TextView>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#d3d3d3"
+                        />
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_margin="10dp"
+                        android:background="#d3d3d3"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <Spinner
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/exam_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </Spinner>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/exam_error">
+
+                        </TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <Spinner
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="40dp"
+                            android:id="@+id/subjectNames"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+
+                        </Spinner>
+                        <TextView
+                            android:layout_marginTop="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/sub_error">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <Spinner
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="40dp"
+                            android:id="@+id/reuse_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </Spinner>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="40dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/reuse_error">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <Spinner
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="40dp"
+                            android:id="@+id/state"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </Spinner>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="40dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/state_error">
+
+                        </TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <Spinner
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="40dp"
+                            android:id="@+id/city"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </Spinner>
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="40dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/city_error">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_margin="10dp"
+                        android:background="#d3d3d3"
+                        />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="10dp"
+                android:layout_width="340dp"
+                android:layout_marginLeft="10dp"
+                app:cardCornerRadius="10dp"
+                android:layout_height="wrap_content">
+                <com.androlord.prayaas.NavigationFragments.ExpandableTextView
+                    android:id="@+id/reuse"
+                    android:text="@string/reusea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </com.androlord.prayaas.NavigationFragments.ExpandableTextView>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="335dp"
+                android:layout_height="117dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
+                app:cardCornerRadius="10dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="#d3d3d3"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <RadioGroup
+                        android:layout_width="305dp"
+                        android:layout_height="101dp">
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/donate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/donate">
+
+                        </androidx.appcompat.widget.AppCompatRadioButton>
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/sell"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="20dp"
+                            android:text="@string/sell">
+
+                        </androidx.appcompat.widget.AppCompatRadioButton>
+                    </RadioGroup>
+                    <TextView
+                        android:id="@+id/radio_error"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_margin="10dp"
+                    android:background="#d3d3d3"/>
+
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="10dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:id="@+id/privacy_policy"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp">
+
+                    </CheckBox>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/agree">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="10dp"
+                android:layout_width="340dp"
+                android:layout_marginLeft="10dp"
+                app:cardCornerRadius="10dp"
+                android:layout_height="wrap_content">
+
+                <com.androlord.prayaas.NavigationFragments.ExpandableTextView
+                    android:id="@+id/privacy"
+                    android:clickable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </com.androlord.prayaas.NavigationFragments.ExpandableTextView>
+            </androidx.cardview.widget.CardView>
+            <Button
+                android:id="@+id/sumit"
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add"
+                android:onClick="submit"
+
+                android:textColor="@color/white"
+                android:background="#3895d3">
+
+            </Button>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

@@ -9,7 +9,7 @@
     <string name="bookname">Enter the name of book</string>
     <string name="authorname">Enter the name of author</string>
     <string name="donate">Donate</string>
-    <string name="enter_journal_message">Enter</string>
+    <string name="enter_journal_message">Say the city</string>
     <string name="sell">Sell</string>
     <string name="publishdate">Select publish date</string>
     <string name="reusea">Tap to know more:The reusability scale is the measure of state of book.Rate your product on a scale of 1-10 sighting its present condition.It should be filled with honesty.A new book has a rating of 10 while a book more than 10 years old has a scale of 1</string>

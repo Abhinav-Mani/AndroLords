@@ -10,6 +10,10 @@
     <declare-styleable name="ExpandableTextView">
         <attr name="trimLength" format="integer"/>
     </declare-styleable>
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlActivated">#FFD700</item>
+        <item name="colorControlNormal">	#D3D3D3</item>
+    </style>
 
 </resources>
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/single_contact_item"
+    android:layout_height="100dp"
+    android:orientation="horizontal">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="6dp"
+        android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="100dp"
+        android:id="@+id/singlecontactbookcover"
+        android:layout_height="100dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/singlecontactbookname"
+        android:text="NameofBook"
+        android:gravity="center"/>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
