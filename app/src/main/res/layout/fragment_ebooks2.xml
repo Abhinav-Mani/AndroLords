@@ -4,11 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NavigationFragments.Ebooks">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/recyclerViewListEbooks"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addebooks"
+        android:layout_width="wrap_content"
+        android:src="@drawable/floating"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/cardview_compat_inset_shadow"
+
+        android:layout_marginBottom="@dimen/cardview_compat_inset_shadow"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        />
+    </RelativeLayout>
+
 
 </FrameLayout>

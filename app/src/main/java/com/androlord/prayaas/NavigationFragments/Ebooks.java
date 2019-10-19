@@ -1,111 +1,127 @@
 package com.androlord.prayaas.NavigationFragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.androlord.prayaas.Adapters.RecyclerViewAdapterEbooks;
+import com.androlord.prayaas.DataClass.EbookDetails;
+import com.androlord.prayaas.DataClass.uploadPDF;
+import com.androlord.prayaas.MainActivity;
 import com.androlord.prayaas.R;
+import com.androlord.prayaas.Support.AddEbook;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Ebooks.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Ebooks#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import static android.app.Activity.RESULT_OK;
+
+
 public class Ebooks extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    FloatingActionButton floatingActionButton;
+    StorageReference storageReference;
 
-    private OnFragmentInteractionListener mListener;
+    DatabaseReference databaseReference;
+
+    RecyclerViewAdapterEbooks recyclerViewAdapterEbooks;
+
+    ArrayList<EbookDetails> list=new ArrayList<EbookDetails>();
+
+
+
 
     public Ebooks() {
-        // Required empty public constructor
+
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Ebooks.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Ebooks newInstance(String param1, String param2) {
-        Ebooks fragment = new Ebooks();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ebooks2, container, false);
+
+        View vh=inflater.inflate(R.layout.fragment_ebooks2, container, false);
+        intit(vh);
+        getdata();
+        return vh;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    private void intit(View vh) {
+        floatingActionButton=vh.findViewById(R.id.addebooks);
+        storageReference= FirebaseStorage.getInstance().getReference();
+        databaseReference= FirebaseDatabase.getInstance().getReference("Ebooks");
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), AddEbook.class));
+
+
+            }
+        });
+        list=new ArrayList<EbookDetails>();
+        RecyclerView recyclerView=vh.findViewById(R.id.recyclerViewListEbooks);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerViewAdapterEbooks=new RecyclerViewAdapterEbooks(list);
+        recyclerView.setAdapter(recyclerViewAdapterEbooks);
+
+
+
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+    private void getdata() {
+        Log.d("ak47", "getdata: ");
+        databaseReference=FirebaseDatabase.getInstance().getReference("Ebooks");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
+                {
+                    HashMap<String,String > mp=new HashMap<String,String>();
+                    mp=(HashMap<String,String >)dataSnapshot1.getValue();
+                    Log.d("ak47",dataSnapshot1.getKey()+"->"+mp);
+                    EbookDetails ebookDetails=new EbookDetails();
+                    ebookDetails.name=mp.get("name");
+                    list.add(ebookDetails);
+                }
+                recyclerViewAdapterEbooks.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }
