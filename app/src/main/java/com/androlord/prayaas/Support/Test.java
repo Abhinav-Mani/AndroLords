@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ import java.util.Locale;
 public class Test extends AppCompatActivity {
     private TextView textView;
     private TextToSpeech textToSpeech;
+    EditText path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,7 @@ public class Test extends AppCompatActivity {
         setContentView(R.layout.activity_test);
         textView=findViewById(R.id.textView);
         textView.setMovementMethod(new ScrollingMovementMethod());
-
+        path=findViewById(R.id.path);
 
 
         textToSpeech=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
@@ -56,7 +58,7 @@ public class Test extends AppCompatActivity {
     public void readButtonOnClick(View view){
 
 
-        File file=new File("/sdcard/NOC.pdf");
+        File file=new File("/sdcard/"+path.getText().toString().trim()+"."+"pdf");
         String stringParser;
         try {
 

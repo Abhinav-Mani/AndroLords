@@ -18,16 +18,20 @@
             android:onClick="readButtonOnClick"
             android:text="Button"
             />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/path"
+                android:layout_width="match_parent"
+                android:hint="Enter file name"
+                android:layout_height="wrap_content">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="220dp"
+            </com.google.android.material.textfield.TextInputEditText>
 
-            android:onClick="data"
-            android:src="@drawable/floating">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
 
     </LinearLayout>
 
@@ -37,8 +41,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars = "vertical"
-        android:text="Hello World!"
+
         />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginLeft="300dp"
+        android:onClick="data"
+        android:src="@drawable/floating">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
 
 
 
