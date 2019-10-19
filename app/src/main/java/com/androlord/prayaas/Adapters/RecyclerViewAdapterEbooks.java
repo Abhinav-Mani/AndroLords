@@ -3,6 +3,7 @@ package com.androlord.prayaas.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.pdf.PdfRenderer;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +45,7 @@ public class RecyclerViewAdapterEbooks extends RecyclerView.Adapter<RecyclerView
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context, ViewPdf.class);
-                intent.putExtra("URI",list.get(position).url);
+                intent.putExtra("Data", list.get(position));
                 context.startActivity(intent);
             }
         });

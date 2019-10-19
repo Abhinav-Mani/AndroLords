@@ -111,6 +111,7 @@ public class Ebooks extends Fragment {
                     EbookDetails ebookDetails=new EbookDetails();
                     ebookDetails.name=mp.get("name");
                     ebookDetails.url=mp.get("url");
+                    ebookDetails.url=mp.get("Key");
                     list.add(ebookDetails);
                 }
                 recyclerViewAdapterEbooks.notifyDataSetChanged();
