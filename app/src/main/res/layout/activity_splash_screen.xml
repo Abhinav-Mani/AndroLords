@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Support.SplashScreen"
+    android:background="#90caf9"
+    android:backgroundTintMode="multiply">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="212dp"
+        android:layout_height="351dp"
+        app:srcCompat="@drawable/logo"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="126dp"
+        android:layout_gravity="center"
+        android:paddingTop="50dp"/>
+
+    <ImageView
+        android:id="@+id/prayaas"
+        android:layout_width="wrap_content"
+        android:layout_height="229dp"
+        android:layout_gravity="center"
+
+        android:paddingTop="80dp"
+        android:paddingBottom="0dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/prayaas" />
+
+    <TextView
+        android:id="@+id/beEd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="  Be Educated"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/beEmp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="  Be Empowered"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+
+</LinearLayout>

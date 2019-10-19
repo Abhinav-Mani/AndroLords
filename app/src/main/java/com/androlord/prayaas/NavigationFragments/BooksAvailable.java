@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class BooksAvailable extends Fragment {
     RecyclerView recyclerView;
     Spinner state_search,city_search,exam_type_search;
     Button search;
+    LinearLayout linearLayout;
     private final int REQ_CODE_SPEECH_INPUT = 2;
 
     ArrayAdapter stat,cit,exam;
@@ -134,7 +136,7 @@ public class BooksAvailable extends Fragment {
                 cities);
         mAutoCompleteTextView.setThreshold(1);
         mAutoCompleteTextView.setAdapter(mArrayAdapter);
-
+        linearLayout=vh.findViewById(R.id.available_book);
         mSpeechButton=vh.findViewById(R.id.voice_search);
         mSpeechButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,6 +167,7 @@ public class BooksAvailable extends Fragment {
             @Override
             public void onClick(View v) {
                 list.clear();
+                linearLayout.setVisibility(View.VISIBLE);
                 Log.d("ak47", "onClick: ");
                 database = FirebaseDatabase.getInstance();
 
