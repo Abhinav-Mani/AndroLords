@@ -8,5 +8,8 @@
         android:layout_height="match_parent"
         android:text="Name"
         android:id="@+id/single_ebook_name"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
