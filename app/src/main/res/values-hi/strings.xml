@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PRAYAS</string>
+    <string name="hello_blank_fragment">this fragment chat List</string>
+    <string name="hello_blank_fragment2">this fragment available books List</string>
+    <string name="hello_blank_fragment3">this fragment your book List</string>
+    <string name="bookcover">जोड़ें बुक कवर</string>
+    <string name="enter_journal_message">Enter</string>
+    <string name="bookname">पुस्तक का नाम दर्ज करें</string>
+    <string name="authorname">लेखक का नाम दर्ज करें</string>
+    <string name="donate">दान</string>
+    <string name="sell">बेचना</string>
+    <string name="publishdate">प्रकाशन तिथि चुनें</string>
+    <string name="reusea">अधिक जानने के लिए टैप करें: पुन: प्रयोज्य पैमाना पुस्तक की स्थिति का माप है। अपने उत्पाद को 1-10 के पैमाने पर देखें। इसकी वर्तमान स्थिति को देखते हुए। इसे ईमानदारी से भरा जाना चाहिए। नई पुस्तक की रेटिंग 10 है, जबकि पुस्तक अधिक 10 साल की उम्र में 1 का पैमाना होता है</string>
+    <string name="pic">अधिक जानने के लिए टैप करें: कृपया पुस्तक के विभिन्न पृष्ठों की तीन तस्वीरें जोड़ें। ये तस्वीरें ग्राहकों द्वारा सुलभ होंगी।</string>
+    <string name="policy">आपके पास आपका ईमेल, आपका स्थान, आपकी खोज का इतिहास है। यह आपको एक बेहतर उपयोगकर्ता अनुभव और अधिक सुविधाएँ प्रदान करने के लिए है। हम इन महत्वपूर्ण सूचनाओं को विशेष रूप से आपकी अनुमति के बिना किसी तीसरे पक्ष के साथ साझा नहीं करते हैं, लेकिन हम इन आंकड़ों का उपयोग करते हैं एक बेहतर ऐप अनुभव। आप हमें इन डेटा तक पहुंच बनाने की अनुमति देते हैं।
+</string>
+    <string name="agree">आप हमारी उपयोग की शर्तों और गोपनीयता नीति से सहमत हैं</string>
+    <string name="nameerror">पुस्तक का नाम रिक्त नहीं छोड़ा जा सकता</string>
+    <string name="authorerror">पुस्तक का लेखक खाली नहीं छोड़ा जा सकता</string>
+    <string name="add">पुस्तक जोड़ें</string>
+    <string name="agreewarn">आगे बढ़ने के लिए हमारी गोपनीयता नीति से सहमत हों</string>
+    <string-array name="select">
+        <item>
+विषय का चयन करें</item>
+    </string-array>
+    <string-array name="rating">
+        <item>पुनरावर्तन की स्थिति</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="exam_type">
+        <item>परीक्षा का चयन करें</item>
+        <item>JEE MAINS</item>
+        <item>JEE ADVANCED</item>
+        <item>GATE</item>
+        <item>NEET</item>
+        <item>AIIMS</item>
+        <item>ICSE</item>
+        <item>ISC</item>
+        <item>CBSE(10)</item>
+        <item>CBSE(12)</item>
+        <item>CAT</item>
+        <item>XAT</item>
+        <item>UPSC</item>
+        <item>NDA</item>
+        <item>OTHERS</item>
+    </string-array>
+    <string-array name="selectCity">
+        <item>शहर चुनें</item>
+    </string-array>
+    <string-array name="state_list">
+
+
+        <item>राज्य चुनें</item>
+        <item>Andhra Pradesh</item>
+
+        <item>Arunachal Pradesh</item>
+
+        <item>Assam</item>
+
+        <item>Bihar</item>
+
+        <item>Chhattisgarh</item>
+
+        <item>Goa</item>
+
+        <item>Gujarat</item>
+
+        <item>Haryana</item>
+
+        <item>Himachal Pradesh</item>
+
+        <item>Jammu and Kashmir</item>
+
+        <item>Jharkhand</item>
+
+        <item>Karnataka</item>
+
+        <item>Kerala</item>
+
+        <item>Madhya Pradesh</item>
+
+        <item>Maharashtra</item>
+
+        <item>Manipur</item>
+
+        <item>Meghalaya</item>
+
+        <item>Mizoram</item>
+
+        <item>Nagaland</item>
+
+        <item>Odisha</item>
+
+        <item>Punjab</item>
+
+        <item>Rajasthan</item>
+
+        <item>Sikkim</item>
+
+        <item>Tamil Nadu</item>
+
+        <item>Telangana</item>
+
+        <item>Tripura</item>
+
+        <item>Uttar Pradesh</item>
+
+        <item>Uttarakhand</item>
+
+        <item>West Bengal</item>
+
+    </string-array>
+
+
+</resources>

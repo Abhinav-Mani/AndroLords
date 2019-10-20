@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PRAYAS</string>
+    <string name="hello_blank_fragment">this fragment chat List</string>
+    <string name="hello_blank_fragment2">this fragment available books List</string>
+    <string name="hello_blank_fragment3">this fragment your book List</string>
+    <string name="bookcover">বইয়ের কভারটি যোগ করুন</string>
+    <string name="bookname">বইয়ের নাম লিখুন</string>
+    <string name="authorname">লেখকের নাম লিখুন</string>
+    <string name="donate">দান করা</string>
+    <string name="sell">বিক্রি করা</string>
+    <string name="publishdate">প্রকাশের তারিখটি নির্বাচন করুন</string>
+    <string name="reusea">আরও জানার জন্য আলতো চাপুন: পুনঃব্যবহারযোগ্যতা স্কেল হ\'ল বইয়ের রাজ্যের পরিমাপ তোমার আপনার পণ্যটির বর্তমান অবস্থা দেখে 1-10 স্কেল করে রেট করুন  এটি সততার সাথে ভরা উচিত নতুন একটি নতুন বইয়ের রেটিং 10 রয়েছে এবং আরও একটি বই 10 বছরেরও বেশি বয়সী এর স্কেল 1</string>
+    <string name="pic">আরও জানতে ট্যাপ করুন: দয়া করে বইয়ের বিভিন্ন পৃষ্ঠার তিনটি ছবি যুক্ত করুন ফটো এই ফটোগুলি গ্রাহকদের দ্বারা অ্যাক্সেসযোগ্য হবে।</string>
+    <string name="policy">আমরা আপনার ইমেল, আপনার অবস্থান, আপনার অনুসন্ধানের ইতিহাসে অ্যাক্সেস পেয়েছি আপনিএটি আপনাকে আরও ভাল ব্যবহারকারীর অভিজ্ঞতা এবং আরও বৈশিষ্ট্য সরবরাহ করার জন্য। আমরা আপনার অনুমতি ছাড়াই কোনও তৃতীয় পক্ষের সাথে বিশেষত এই গুরুত্বপূর্ণ তথ্যগুলি ভাগ করি না তবে আমরা এই ডেটাগুলি ব্যবহার করি একটি ভাল অ্যাপ্লিকেশন অভিজ্ঞতা। আপনি আমাদের এই ডেটা অ্যাক্সেস করতে অনুমতি দিন।</string>
+    <string name="agree">আপনি আমাদের ব্যবহারের শর্তাদি এবং গোপনীয়তা নীতিতে সম্মত হন</string>
+    <string name="nameerror">বইয়ের নামটি ফাঁকা রাখা যায় না</string>
+    <string name="authorerror">বইয়ের লেখককে ফাঁকা রাখা যায় না</string>
+    <string name="add">বই যুক্ত করুন</string>
+    <string name="agreewarn">এগিয়ে যাওয়ার জন্য আমাদের গোপনীয়তা নীতিতে সম্মত হন</string>
+</resources>

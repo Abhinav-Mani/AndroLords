@@ -8,4 +8,23 @@
     <item
         android:id="@+id/Hindi"
         android:title="Hindi"/>
+    <item
+        android:id="@+id/Bengali"
+
+        android:title="Bengali"/>
+
+    <item
+        android:id="@+id/Gujarati"
+        android:title="Gujarati"/>
+    <item
+        android:id="@+id/Tamil"
+        android:title="Tamil"/>
+    <item
+        android:id="@+id/Marathi"
+
+        android:title="Marathi"/>
+
+    <item
+        android:id="@+id/Telugu"
+        android:title="Telugu"/>
 </menu>

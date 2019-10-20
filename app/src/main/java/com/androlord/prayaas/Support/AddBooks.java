@@ -510,6 +510,21 @@ public class AddBooks extends AppCompatActivity {
                 break;
             case R.id.Hindi:
                 setLocale("hi");
+                break;
+            case R.id.Bengali:
+                setLocale("bn");
+                break;
+            case R.id.Gujarati:
+                setLocale("gu");
+                break;
+            case R.id.Tamil:
+                setLocale("ta");
+                break;
+            case R.id.Marathi:
+                setLocale("mr");
+                break;
+            case R.id.Telugu:
+                setLocale("te");
 
         }
         return super.onOptionsItemSelected(item);
