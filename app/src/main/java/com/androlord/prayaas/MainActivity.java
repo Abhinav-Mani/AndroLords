@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.androlord.prayaas.NavigationFragments.BooksAvailable;
 import com.androlord.prayaas.NavigationFragments.Chats;
 import com.androlord.prayaas.NavigationFragments.Ebooks;
+import com.androlord.prayaas.NavigationFragments.GroupChat;
 import com.androlord.prayaas.NavigationFragments.YourBooks;
 import com.androlord.prayaas.Support.AdminPanel;
 import com.androlord.prayaas.Support.AudioBooks;
@@ -50,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.AdminPanel:
                 jump();
                 break;
+            case R.id.GroupChat:
+                FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+                GroupChat groupChat=new GroupChat();
+                fragmentTransaction.replace(R.id.container,groupChat);
+                fragmentTransaction.commit();
+                break;
+
 
         }
 
@@ -122,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation=findViewById(R.id.navigationView);
         FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
         BooksAvailable booksAvailable=new BooksAvailable();
-        fragmentTransaction.add(R.id.container,booksAvailable);
+        fragmentTransaction.replace(R.id.container,booksAvailable);
         fragmentTransaction.commit();
 
         final String finalCurrentUsername = currentUsername;

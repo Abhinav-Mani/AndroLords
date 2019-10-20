@@ -6,6 +6,11 @@
 
     </item>
     <item
+        android:title="GroupChat"
+        android:id="@+id/GroupChat">
+
+    </item>
+    <item
         android:title="AdminPanel"
         android:id="@+id/AdminPanel">
 
